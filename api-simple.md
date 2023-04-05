@@ -1,9 +1,6 @@
-# シンプルなAPI連携
+# 外部サイトとの連携
 
 <img src="images/api-target.png" alt="API連携のターゲット" width="500px">
-
-
-## 外部のサイトとの連携
 
 API Managementを通して外部のサイトを呼び出すための設定をしていきます。
 ここでは外部アプリケーションとして[httpbin.org](https://httpbin.org)の3つのAPIを呼ぶ設定をしていきます。
@@ -153,6 +150,27 @@ API Managementを通して外部のサイトを呼び出すための設定をし
 
 右Paneをスクロールして __Request URL__ をコピーしてブラウザからもアクセスしてみる。
 
+
+
+## 裏技：ソリューションを使ってOperationを追加する
+
+
+#### 1. API一覧の Http Binの右の「・・・」をクリックしてプルダウンメニューを表示し、「Import」をクリック
+
+<img src="images/add-api-solution-1.png" width="300px" />
+
+
+#### 2. Import APIの一覧から「Open API」をクリック
+<img src="images/add-api-solution-2.png" width="300px" />
+
+
+#### 3. インポートするファイルを指定してインポート
+<img src="images/add-api-solution-3.png" width="300px" />
+
+|名称|値|
+|---|---|
+|OpenAPI specification|https://raw.githubusercontent.com/akubicharm/azure-apim-workshop/main/solution/HttpBinSolution.json|
+|Import method|Update|
 
 ---
 
