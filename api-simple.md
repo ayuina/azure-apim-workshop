@@ -2,15 +2,13 @@
 
 <img src="images/api-target.png" alt="API連携のターゲット" width="500px">
 
-ここでは外部アプリケーションとして[httpbin.org](https://httpbin.org)の3つのAPIを呼ぶ設定をしていきます。
-
 
 ## 外部のサイトとの連携
 
-まずは、API Managementを通して外部のサイトを呼び出すための設定をしていきます。
+API Managementを通して外部のサイトを呼び出すための設定をしていきます。
+ここでは外部アプリケーションとして[httpbin.org](https://httpbin.org)の3つのAPIを呼ぶ設定をしていきます。
 
-外部サイト: https://httpbin.org
-
+利用するAPI
 |メソッド|コンテキストパス|
 |---|---|
 |GET|/html|
@@ -26,6 +24,7 @@
 4. Operationの定義 その2 シンプルなPOST
 5. POSTの呼び出しテスト
 6. Operationの定義　その3 ヘッダーを追加して GET 
+7. コンテキストパスを設定した GETの呼び出しテスト
 
 
 ### 1. APIを追加
