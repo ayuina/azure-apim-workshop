@@ -2,8 +2,7 @@
 
 ## Azureポータルでのデプロイ
 
-[Azure API ManagementをAzureポータルでデプロイする](https://learn.microsoft.com/ja-jp/azure/api-management/get-started-create-service-instance) を参考にして、APIM をデプロイします。
-
+[Azure API ManagementをAzureポータルでデプロイする](https://learn.microsoft.com/ja-jp/azure/api-management/get-started-create-service-instance) と、以下の画面スナップショットや補足説明を参考に、APIMをデプロイします。
 
 
 #### 1. このボタンをクリックして、APIM のデプロイを開始　<a href="https://portal.azure.com/#create/Microsoft.ApiManagement"><img src="./images/deploytoazurebutton.svg" /></a>　
