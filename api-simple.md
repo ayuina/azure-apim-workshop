@@ -1,13 +1,8 @@
 # シンプルなAPI連携
 
-ここでは、3種類のAPI連携をやっていきます。
-
-1. 外部のサイトと連携
-2. Azure Functionsとの連携
-3. Azure Logic Apps との連携
-
-
 <img src="images/api-target.png" alt="API連携のターゲット" width="500px">
+
+ここでは外部アプリケーションとして[httpbin.org](https://httpbin.org)の3つのAPIを呼ぶ設定をしていきます。
 
 
 ## 外部のサイトとの連携
@@ -64,7 +59,7 @@
 
 ### 2. Operationの定義 その１ - シンプルなGET
 #### 2-1. 画面上部の「Design」タブをクリックしてデザイン画面を表示
-#### 2-2. Operationの詳細を入力
+#### 2-2. 「+Add operation」をクリックしてOperationの詳細を入力
 |名称|値|
 |---|---|
 |Display name|html|
@@ -92,7 +87,76 @@
 <img src="images/add-api-http-test-3.png" alt="HTML Operationのテスト結果" width="500px"/>
 
 
+### 4. Operationの定義 その2 - シンプルなPOST
+
+#### 4-1. 画面上部の「Design」タブをクリックしてデザイン画面を表示
+#### 4-2. 「+Add operation」をクリックしてOperationの詳細を入力
+|名称|値|
+|---|---|
+|Display name|status|
+|Name|自動入力されるのでそのまま|
+|URL|メソッド: POST、コンテキストパス: /status/*|
+
+画面下部の「Save」ボタンをクリック
+
+<img src="images/add-api-status-1.png" alt="status Operationの追加" width="500px"/>
+
+### 5. POSTの呼び出しテスト
+
+#### 5-1. 画面上部の「Test」タブをクリックしてテスト画面を表示
+#### 5-2. Operationの一覧から先ほど追加した 「POST status」を選択
+#### 5-3. Template Parameterに「200」を入力し、画面下部の「Send」ボタンをクリック
 
 
+<img src="images/add-api-status-test-1.png" alt="status Operationのテスト" width="500px"/>
+
+レスポンスヘッダーが「200 OK」ならば接続完了
+
+<img src="images/add-api-status-test-2.png" alt="status Operationのテスト結果" width="500px"/>
 
 
+#### 5-4. Template Parameterに「500」を入力し、画面下部の「Send」ボタンをクリック
+500 INTERNAL SERVER ERROR が返ってくることを確認する。
+
+
+### 6. Operationの定義　その3 ヘッダーを追加して GET 
+#### 6-1. 画面上部の「Design」タブをクリックしてデザイン画面を表示
+#### 6-2. 「+Add operation」をクリックしてOperationの詳細を入力
+|名称|値|
+|---|---|
+|Display name|image|
+|Name|自動入力されるのでそのまま|
+|URL|メソッド: GET、コンテキストパス: /image|
+
+#### 6-3. 画面をスクロールしHeadersタブをクリック
+
+#### 6-4. Headersセクションで「+ Add Header」をクリックして、HTTPヘッダを設定
+
+|名称|値|
+|---|---|
+|NAME|Accept|
+|DESCRIPTION|（空白）|
+|TYPE|String|
+|VALUES|image/jpeg<br>プルダウンを表示し、「+ Add Value」をクリックして入力<br><img src="images/add-api-image-addheader.png" width="300px"/>|
+|REQUIRED|チェックする|
+
+画面下部の「Save」ボタンをクリック
+
+<img src="images/add-api-image-1.png" alt="image Operationの追加" width="500px"/>
+
+### 7. GETの呼び出しテスト
+
+#### 7-1. 画面上部の「Test」タブをクリックしてテスト画面を表示
+#### 7-2. Operationの一覧から先ほど追加した 「GET image」を選択
+#### 7-3. 画面下部の「Send」ボタンをクリック
+
+<img src="images/add-api-image-test-1.png" alt="image Operationのテスト" width="500px"/>
+
+右Paneをスクロールして __Request URL__ をコピーしてブラウザからもアクセスしてみる。
+
+
+---
+
+<a href="setup-apim.md">←戻る</a>
+<a href="readme.md">↑メニュー</a>
+<a href="api-function.md">次へ→</a>
