@@ -1,16 +1,9 @@
 # 外部サイトとの連携
 
-<img src="images/api-target.png" alt="API連携のターゲット" width="500px">
-
 API Managementを通して外部のサイトを呼び出すための設定をしていきます。
 ここでは外部アプリケーションとして[httpbin.org](https://httpbin.org)の3つのAPIを呼ぶ設定をしていきます。
 
-利用するAPI
-|メソッド|コンテキストパス|
-|---|---|
-|GET|/html|
-|POST|/status|
-|GET|/image|
+<img src="images/httpbin.png" width="300px" />
 
 
 外部サイトの連携でやることは次のとおりです。
