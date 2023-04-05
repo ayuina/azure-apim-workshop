@@ -1,0 +1,84 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Http Bin Solution",
+        "description": "",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://httpbin.org"
+        }
+    ],
+    "paths": {
+        "/html": {
+            "get": {
+                "summary": "html",
+                "operationId": "html",
+                "responses": {
+                    "200": {
+                        "description": null
+                    }
+                }
+            }
+        },
+        "/status/*": {
+            "post": {
+                "summary": "status",
+                "operationId": "status",
+                "responses": {
+                    "200": {
+                        "description": null
+                    }
+                }
+            }
+        },
+        "/image": {
+            "get": {
+                "summary": "image",
+                "operationId": "image",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "enum": [
+                                "image/jpeg"
+                            ],
+                            "type": "String",
+                            "default": "image/jpeg"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": null
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
