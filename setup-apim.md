@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/7894259/229985475-34cd8867-c045-46b4-8af1-a575600f414d.mp4
+
 # Azure API Management のデプロイ
 
 ## Azureポータルでのデプロイ
