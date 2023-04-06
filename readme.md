@@ -4,7 +4,7 @@
 
 1. [環境準備](setup-apim.md)
 2. [外部のサイトと連携](api-simple.md)
-3. Azure Functionsとの連携
+3. [Azure Functionsとの連携](api-function.md)
 4. Azure Logic Apps との連携
 
 
