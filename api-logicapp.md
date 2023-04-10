@@ -44,6 +44,7 @@ __基本タブ__
 <img src="images/install-logicapp.png" width="500px" alt="ロジックアプリの作成"/>
 
 設定内容の確認ができたら、画面下部の「作成」ボタンをクリック
+
 <img src="images/install-logicapp-2.png" width="500px" alt="ロジックアプリの作成"/>
 
 作成が終わったら「リソースに移動」ボタンをクリック
@@ -75,12 +76,11 @@ __基本タブ__
 <img src="images/logicapp-create-workflow-6.png" alt="ワークフローの作成1" width="500px" />
 
 
-
 #### 2-6. 画面上部の「保存」ボタンをクリック
 
 #### 2-7. 画面上部の「トリガーの実行」ボタンをクリックし、プルダウンメニューの「実行」をクリック
 
-<img src="images/logicapp-create-workflow-7.png" alt="ワークフローの作成4" width="500px" />
+<img src="images/logicapp-create-workflow-7.png" alt="ワークフローの作成4" width="300px" />
 
 
 ### 3. Logic Appを　APIとして追加
@@ -96,7 +96,7 @@ __基本タブ__
 #### 3-4. インポートするロジックアプリの選択画面で一覧から作成したロジックアプリを選択し画面下部の「選択」ボタンをクリック
 
 #### 3-5. 戻ってきたCreate from Logic Appダイアログの右下の「Create」ボタンをクリック
-<img src="images/add-logicapp-3.png" alt="Create from Azure resource" width="500px" />
+<img src="images/add-logicapp-3.png" alt="Create from Azure resource" width="600px" />
 
 
 ### 4. 呼び出しのテスト
