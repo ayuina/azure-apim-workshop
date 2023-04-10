@@ -2,10 +2,10 @@
 
 ポリシーは、トラフィックの制御やバックエンドAPIの呼び出しなど、バックエンドの呼び出し前後の処理を定義します。
 
-<img src="images/apim-policy-overview-1.png" size="300px" />
+<img src="images/apim-policy-overview-1.png" width="300px" />
 
 ポリシーの適用範囲はグローバル（すべてのAPI)から各オペレーション単位までさまざまなスコープで適用できます。
-<img src="images/apim-policy-overview-2.png" size="300px" />
+<img src="images/apim-policy-overview-2.png" width="300px" />
 
 
 ここでは、オペレーション単位でのポリシーの設定をしていきます。
