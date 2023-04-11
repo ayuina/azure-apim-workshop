@@ -58,7 +58,7 @@ __基本タブ__
 |名称|値|
 |---|---|
 |ソース|外部Git|
-|リポジトリ|https://github.com/akubicharm/azure-apim-workshop-func|
+|リポジトリ|`https://github.com/akubicharm/azure-apim-workshop-func`|
 |ブランチ|main|
 |リポジトリの種類|パブリック|
 
