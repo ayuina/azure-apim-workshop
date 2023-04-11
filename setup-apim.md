@@ -62,3 +62,8 @@ APIM がデプロイできたら、セットアップ済みのデモAPIを呼ん
 
 
 <div><video controles src="https://user-images.githubusercontent.com/7894259/229988379-8db12a41-4ce5-4431-bbb0-89165c0a85da.mp4"></video></div>
+
+
+
+<a href="readme.md">↑メニュー</a>
+<a href="api-logicapp.md">次へ→</a>
