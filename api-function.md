@@ -128,6 +128,10 @@ __基本タブ__
 
 #### 4-5. パラメータを入力してテストを実行
 
+Headersセクションで「+Add header」をクリックして、Content-Typeを指定。
+
+Request bodyセクションでJSONを入力。
+
 |名称|値|
 |---|---|
 |__Headers__||
