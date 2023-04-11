@@ -47,6 +47,9 @@ API Managementを通して外部のサイトを呼び出すための設定をし
 <img src="images/add-api-http-disable-subscription.png" alt="Subscriptionを無効化" width="500px"/>
 
 ### 2. Operationの定義 その１ - シンプルなGET
+
+シンプルなhtmlを返すサービスを呼び出します。
+
 #### 2-1. 画面上部の「Design」タブをクリックしてデザイン画面を表示
 #### 2-2. 「+Add operation」をクリックしてOperationの詳細を入力
 |名称|値|
@@ -77,6 +80,8 @@ API Managementを通して外部のサイトを呼び出すための設定をし
 
 
 ### 4. Operationの定義 その2 - シンプルなPOST
+
+送信したレスポンスコードをレスポンスヘッダーに設定して応答するサービスを呼び出します。
 
 #### 4-1. 画面上部の「Design」タブをクリックしてデザイン画面を表示
 #### 4-2. 「+Add operation」をクリックしてOperationの詳細を入力
@@ -109,6 +114,9 @@ API Managementを通して外部のサイトを呼び出すための設定をし
 
 
 ### 6. Operationの定義　その3 ヘッダーを追加して GET 
+
+指定したフォーマットの画像ファイルを返すサービスを呼び出します。
+
 #### 6-1. 画面上部の「Design」タブをクリックしてデザイン画面を表示
 #### 6-2. 「+Add operation」をクリックしてOperationの詳細を入力
 |名称|値|
