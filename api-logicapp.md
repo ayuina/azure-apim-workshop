@@ -110,5 +110,17 @@ __基本タブ__
 <img src="images/add-logicapp-test-2.png" alt="LogicApp APIのテスト" width="500px" />
 
 
+---
+
+<a href="api-function.md">←戻る</a>
+<a href="readme.md">↑メニュー</a>
+<a href="api-policy.md">次へ→</a>
+
+
+<!--
+https://mofumofupower.hatenablog.com/entry/specify_filename_response
+https://rokhri.com/logic-app-read-content-of-a-file-from-azure-blob-storage-to-save-on-ftp-or-one-drive/
+>
+
 
 

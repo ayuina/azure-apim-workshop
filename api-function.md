@@ -8,7 +8,6 @@ API Managementを通してAzure Functionを呼び出すための設定をして�
 
 
 
-
 Azure Function連携でやることは次のとおりです
 
 1. Azure Functionsの作成

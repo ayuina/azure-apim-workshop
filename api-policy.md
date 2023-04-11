@@ -116,3 +116,10 @@ __Frontend__
 
 #### 2-6. レスポンスを編集する場合は、Frontendの編集アイコンをクリックしてフロントエンドのエディタを開く
 <img src="images/add-apim-policy-mock-5.png" width="300px" />
+
+
+---
+
+<a href="api-policy.md">←戻る</a>
+<a href="readme.md">↑メニュー</a>
+→ 次へ
