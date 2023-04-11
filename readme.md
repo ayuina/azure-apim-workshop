@@ -19,4 +19,10 @@
 
 
 ## 参考情報
-https://azure.github.io/apim-lab/
+* [Microsoft Learn : AzureでのAPI統合の設計](https://learn.microsoft.com/ja-jp/training/paths/architect-api-integration/)
+* [Azureドキュメント Azure API Management](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-key-concepts)
+* [Azureドキュメント Azure Functions](https://learn.microsoft.com/ja-jp/azure/azure-functions/functions-overview)
+* [Azureドキュメント Azure Logic Apps](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-overview)
+
+
+<!-- https://azure.github.io/apim-lab/ -->
