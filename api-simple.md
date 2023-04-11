@@ -31,7 +31,7 @@ API Managementを通して外部のサイトを呼び出すための設定をし
 |入力モード|Basic|
 |Display Name|Http Bin|
 |Name|自動入力されるのでそのまま|
-|Web service URL|https://httpbin.org|
+|Web service URL|`https://httpbin.org`|
 |API URL Suffix|httpbin|
 |Base URL|「API URL Suffix」の指定に従って、自動入力|
 
