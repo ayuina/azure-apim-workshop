@@ -66,4 +66,4 @@ APIM がデプロイできたら、セットアップ済みのデモAPIを呼ん
 
 
 <a href="readme.md">↑メニュー</a>
-<a href="api-logicapp.md">次へ→</a>
+<a href="api-simple.md">次へ→</a>
