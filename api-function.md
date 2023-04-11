@@ -113,7 +113,7 @@ __基本タブ__
 
 #### 3-6. 戻ってきたCreate from Function App画面の右下の「Create」ボタンをクリック
 
-<img src="images/add-api-func-2.png" alt="Functionの追加" width="600px" />
+<img src="images/add-api-func-2.png" alt="Functionの追加" />
 
 
 ### 4. Azure Functionの関数 putFile の呼び出しテスト
