@@ -19,7 +19,7 @@
 
 
 ## 参考情報
-* [Microsoft Learn : AzureでのAPI統合の設計](https://learn.microsoft.com/ja-jp/training/paths/architect-api-integration/)
+* [Microsoft Learn : AzureでのAPI統合の設計](https://learn.microsoft.com/ja-jp/training/paths/architect-api-integration/)　Azureのサンドボックス環境が利用できるので、自習用には使いやすい
 * [Azureドキュメント Azure API Management](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-key-concepts)
 * [Azureドキュメント Azure Functions](https://learn.microsoft.com/ja-jp/azure/azure-functions/functions-overview)
 * [Azureドキュメント Azure Logic Apps](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-overview)
