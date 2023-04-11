@@ -55,6 +55,7 @@
 #### 1-8. on-errorセクションを編集して「Save」ボタンをクリック
 
 ```
+    <on-error>
         <base />
         <return-response>
             <set-body>Too many calls!!!</set-body>
