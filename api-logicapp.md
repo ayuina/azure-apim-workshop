@@ -45,7 +45,7 @@ __基本タブ__
 
 設定内容の確認ができたら、画面下部の「作成」ボタンをクリック
 
-<img src="images/install-logicapp-2.png" width="500px" alt="ロジックアプリの作成"/>
+<img src="images/install-logicapp-2.png" width="300px" alt="ロジックアプリの作成"/>
 
 作成が終わったら「リソースに移動」ボタンをクリック
 
