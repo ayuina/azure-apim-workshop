@@ -13,6 +13,7 @@
 
 1. Http bin の GET html 呼び出しの流量制御
 2. モックレスポンスの作成
+3. バックエンドサービス呼び出しのリトライ
 
 
 モックレスポンスを利用、バックエンドのAPIの実装までも仮のレスポンスを返すことができるので、クライアントの開発を進めることができるようになります。
@@ -116,6 +117,44 @@ __Frontend__
 
 #### 2-6. レスポンスを編集する場合は、Frontendの編集アイコンをクリックしてフロントエンドのエディタを開く
 <img src="images/add-apim-policy-mock-5.png" width="300px" />
+
+
+## 3. バックエンドサービスの呼び出しのエラー時のリトライ
+
+#### 3-1. API一覧の「Http Bin」をクリックし、右Paneの「Design」タブをクリック
+
+#### 3-2. Operation一覧で「POST status」をクリックし、BackendのPoliciesの右の「</>」ボタンをクリックしてポリシーの編集を開始
+
+<img src="images/add-apim-policy-retry-1.png" width="500px" />
+
+#### 3-3. <backend>を書きの内容に書き換えて画面下部の「Save」ボタンをクリック
+
+```
+
+    <backend>
+        <retry condition="@(context.Response.StatusCode == 500)" count="1" interval="10">
+            <set-backend-service base-url="https://httpbin.org/anything/" />
+            <forward-request />
+        </retry>
+    </backend>
+
+```
+
+ここで呼び出すバックエンドサービスは `https://httpbin.org/status/[ステータスコード]`。
+このポリシーは、バックエンドサービスの応答が500だった場合に10秒後に1回リトライする。リトライ時にはhttps://httpbin.org/anything/[ステータスコード]`を呼び出す。 
+
+<img src="images/add-apim-policy-retry-2.png" width="500px" />
+
+#### 3-4. 画面上部の「Test」タブをクリックしてテスト画面を表示
+#### 3-5. Operationの一覧から先ほど追加した 「POST status」を選択
+#### 3-6. Template Parameterに「500」を入力し、画面下部の「Send」ボタンをクリック
+
+<img src="images/add-apim-policy-retry-3.png" width="500px" />
+
+バックエンドAPIとして`https://httpbin.org/status/500`を呼び出し、 ResponseCodeが500なので1度リトライし`https://httpbin.org/anything/500`のリクエストがルーティングされその応答が返ってくる。
+
+<img src="images/add-apim-policy-retry-4.png" width="500px" />
+
 
 
 ---
