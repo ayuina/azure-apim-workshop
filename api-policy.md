@@ -121,7 +121,7 @@ __Frontend__
 
 ## 3. バックエンドサービスの呼び出しのエラー時のリトライ
 
-バックエンドサービスのレスポンスコードが500だった場合に、リトライとして別のサービスを呼び出す設定をします。
+バックエンドサービスのレスポンスコードが500だった場合に、リトライとして別のサービスを呼び出すbackend policy を設定します。
 
 #### 3-1. API一覧の「Http Bin」をクリックし、右Paneの「Design」タブをクリック
 
@@ -143,7 +143,7 @@ __Frontend__
 ```
 
 ここで呼び出すバックエンドサービスは `https://httpbin.org/status/[ステータスコード]`。
-このポリシーは、バックエンドサービスの応答が500だった場合に10秒後に1回リトライする。リトライ時にはhttps://httpbin.org/anything/[ステータスコード]`を呼び出す。 
+このポリシーは、バックエンドサービスの応答が500だった場合に10秒後に1回リトライします。リトライ時にはhttps://httpbin.org/anything/[ステータスコード]`を呼び出します。
 <img src="images/add-apim-policy-retry-2.png" width="500px" />
 
 #### 3-4. 画面上部の「Test」タブをクリックしてテスト画面を表示
@@ -152,14 +152,14 @@ __Frontend__
 
 <img src="images/add-apim-policy-retry-3.png" width="500px" />
 
-バックエンドAPIとして`https://httpbin.org/status/500`を呼び出し、 ResponseCodeが500なので1度リトライし`https://httpbin.org/anything/500`のリクエストがルーティングされその応答が返ってくる。
+バックエンドAPIとして`https://httpbin.org/status/500`を呼び出し、 ResponseCodeが500なので1度リトライし`https://httpbin.org/anything/500`のリクエストがルーティングされその応答が返ってきます。
 
 <img src="images/add-apim-policy-retry-4.png" width="500px" />
 
 ## 4. レスポンスの書き換え
 
-httpbin.org/json を呼び出すOperationを追加し、レスポンスの内容を変更して、呼び出し元に返すポリシーを設定します。
-レスポンスとして以下のようなJSONが返ってくるので、ポリシーで`slideshow.author`の部分を書き換えるようにOutbound policyを設定する。
+`https://httpbin.org/json`を呼び出すOperationを追加し、レスポンスの内容を変更して呼び出し元に返すOutbound Policyを設定します。
+`https://httpbin.org/json`はレスポンスとして以下のようなJSONが返ってくるので、`slideshow.author`の部分を書き換えるようにOutbound policyを設定します。
 
 ```
 {
