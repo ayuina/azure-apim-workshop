@@ -181,7 +181,7 @@ __Frontend__
 
 #### 4-3. 右PaneのOutbound processingのPoliciesの右の「</>」ボタンをクリック
 
-####　4-4. outboundの部分を下記に書き換えて画面下部の「Save」をクリック
+#### 4-4. outboundの部分を下記に書き換えて画面下部の「Save」をクリック
 
 ```
     <outbound>
