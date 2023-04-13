@@ -170,6 +170,9 @@ __Frontend__
 ```
 
 #### 4-1. API一覧からHttp binを選択し、画面上部の「Design」タブをクリックしてデザイン画面を表示
+
+<img src="images/add-apim-policy-outboundsetbody-1.png" width="300px" />
+
 #### 4-2. 「+Add operation」をクリックしてOperationの詳細を入力
 |名称|値|
 |---|---|
@@ -179,7 +182,11 @@ __Frontend__
 
 画面下部の「Save」ボタンをクリック
 
+<img src="images/add-apim-policy-outboundsetbody-2.png" width="300px" />
+
 #### 4-3. 右PaneのOutbound processingのPoliciesの右の「</>」ボタンをクリック
+
+<img src="images/add-apim-policy-outboundsetbody-3.png" width="300px" />
 
 #### 4-4. outboundの部分を下記に書き換えて画面下部の「Save」をクリック
 
@@ -194,7 +201,7 @@ __Frontend__
     </outbound>
 ```
 
-
+<img src="images/add-apim-policy-outboundsetbody-4.png" width="400px" />
 ---
 
 <a href="api-policy.md">←戻る</a>
