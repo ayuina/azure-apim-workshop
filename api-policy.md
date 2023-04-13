@@ -144,7 +144,7 @@ __Frontend__
 ```
 
 ここで呼び出すバックエンドサービスは `https://httpbin.org/status/[ステータスコード]`。
-このポリシーは、バックエンドサービスの応答が500だった場合に10秒後に1回リトライします。リトライ時にはhttps://httpbin.org/anything/[ステータスコード]`を呼び出します。
+このポリシーは、バックエンドサービスの応答が500だった場合に10秒後に1回リトライします。リトライ時には`https://httpbin.org/anything/[ステータスコード]`を呼び出します。
 <img src="images/add-apim-policy-retry-2.png" width="500px" />
 
 #### 3-4. 画面上部の「Test」タブをクリックしてテスト画面を表示
