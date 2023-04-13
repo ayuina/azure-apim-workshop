@@ -121,13 +121,15 @@ __Frontend__
 
 ## 3. バックエンドサービスの呼び出しのエラー時のリトライ
 
+バックエンドサービスのレスポンスコードが500だった場合に、リトライとして別のサービスを呼び出す設定をします。
+
 #### 3-1. API一覧の「Http Bin」をクリックし、右Paneの「Design」タブをクリック
 
 #### 3-2. Operation一覧で「POST status」をクリックし、BackendのPoliciesの右の「</>」ボタンをクリックしてポリシーの編集を開始
 
 <img src="images/add-apim-policy-retry-1.png" width="500px" />
 
-#### 3-3. <backend>を書きの内容に書き換えて画面下部の「Save」ボタンをクリック
+#### 3-3. <backend>を下記内容に書き換えて画面下部の「Save」ボタンをクリック
 
 ```
 
@@ -142,7 +144,6 @@ __Frontend__
 
 ここで呼び出すバックエンドサービスは `https://httpbin.org/status/[ステータスコード]`。
 このポリシーは、バックエンドサービスの応答が500だった場合に10秒後に1回リトライする。リトライ時にはhttps://httpbin.org/anything/[ステータスコード]`を呼び出す。 
-
 <img src="images/add-apim-policy-retry-2.png" width="500px" />
 
 #### 3-4. 画面上部の「Test」タブをクリックしてテスト画面を表示
@@ -155,6 +156,42 @@ __Frontend__
 
 <img src="images/add-apim-policy-retry-4.png" width="500px" />
 
+## 4. レスポンスの書き換え
+
+httpbin.org/json を呼び出すOperationを追加し、レスポンスの内容を変更して、呼び出し元に返すポリシーを設定します。
+レスポンスとして以下のようなJSONが返ってくるので、ポリシーで`slideshow.author`の部分を書き換えるようにOutbound policyを設定する。
+
+```
+{
+  "slideshow": {
+    "author": "Yours Truly",
+=== 以下、省略 ===
+```
+
+#### 4-1. API一覧からHttp binを選択し、画面上部の「Design」タブをクリックしてデザイン画面を表示
+#### 4-2. 「+Add operation」をクリックしてOperationの詳細を入力
+|名称|値|
+|---|---|
+|Display name|json|
+|Name|自動入力されるのでそのまま|
+|URL|メソッド: GET、コンテキストパス: /json|
+
+画面下部の「Save」ボタンをクリック
+
+#### 4-3. 右PaneのOutbound processingのPoliciesの右の「</>」ボタンをクリック
+
+####　4-4. outboundの部分を下記に書き換えて画面下部の「Save」をクリック
+
+```
+    <outbound>
+        <base />
+        <set-body>@{
+        JObject responseBody = context.Response.Body.As<JObject>();
+        responseBody["slideshow"]["author"] = "MYNAME";
+        return responseBody.ToString(); 
+        }</set-body>
+    </outbound>
+```
 
 
 ---

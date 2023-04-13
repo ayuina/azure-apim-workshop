@@ -24,5 +24,6 @@
 * [Azureドキュメント Azure Functions](https://learn.microsoft.com/ja-jp/azure/azure-functions/functions-overview)
 * [Azureドキュメント Azure Logic Apps](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-overview)
 
+* [ポリシーのサンプル on GitHub](https://github.com/Azure/api-management-policy-snippets)
 
 <!-- https://azure.github.io/apim-lab/ -->
