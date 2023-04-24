@@ -12,15 +12,15 @@
 
 Azureポータル画面でリソースグループを選択し、右Pane上部の「+作成」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-1.png" alt="pip1" width="300px" />
+<img src="images/apim-vnet-internal-1.png" alt="pip1" width="300px" border=1 />
 
 ### 1.2 マーケットプレイスの検索フィールドに「パブリックIP」と入力し、一覧から「パブリックIPアドレス」を選択
 
-<img src="images/apim-vnet-internal-2.png" alt="pip2" width="300px" />
+<img src="images/apim-vnet-internal-2.png" alt="pip2" width="300px" border=1  />
 
 ### 1.3 「作成」ボタンをクリック
 
-<img src="images/apim-vnet-internal-3.png" alt="pip3" width="300px" />
+<img src="images/apim-vnet-internal-3.png" alt="pip3" width="300px" border=1 />
 
 ### 1.4 パラメータを入力してパブリックIPアドレスを作成
 
@@ -40,18 +40,18 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 
 確認が終了したら、画面下部の「作成」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-4.png" alt="pip3" width="500px" />
+<img src="images/apim-vnet-internal-4.png" alt="pip3" width="500px" border=1 />
 
 ## 2. Azure API Managementのデプロイ
 
 ### 2.1 Azureポータルで仮想ネットワークの作成を開始
 リソースグループの画面に戻り、右Pane上部の「+作成」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-1.png" alt="vnet1" width="300px" />
+<img src="images/apim-vnet-internal-1.png" alt="vnet1" width="300px" border=1 />
 
 ### 2.2 マーケットプレイスの検索フィールドに「api management」と入力し、一覧から「API Management」をクリック
 
-<img src="images/apim-deploy-vnet-internal-1.png" alt="vnet1" width="300px" />
+<img src="images/apim-deploy-vnet-internal-1.png" alt="vnet1" width="300px" border=1 />
 
 
 ### 2.3 基本タブ
@@ -74,7 +74,7 @@ __インスタンスの詳細__
 |価格レベル|Developer（SLAなし）を選択|
 
 
-<img alt="基本" src="../images/install-basic.png" width="400px" border=1>
+<img alt="基本" src="../images/install-basic.png" width="400px" border=1  />
 
 必要な項目を入力したら、*監視、スケーリング、マネージドIDの設定は飛ばして* 「仮想ネットワーク」タブをクリック
 
@@ -91,7 +91,7 @@ __インスタンスの詳細__
 
 ダイアログ下部の「OK」ボタンをクリックします
 
-<img alt="仮想ネットワーク" src="images/apim-deploy-vnet-internal-2.png" width="500px" border=1>
+<img alt="仮想ネットワーク" src="images/apim-deploy-vnet-internal-2.png" width="500px" border=1 />
 
 
 ### 2.5 仮想ネットワークタブでパブリックIPアドレスを指定
@@ -108,11 +108,11 @@ __インスタンスの詳細__
 |サブネット|default|
 |パブリックIPアドレス|apimvnet (前の手順で作成したパブリックIPをプルダウンメニューから選択)|
 
-<img alt="仮想ネットワーク" src="images/apim-deploy-vnet-internal-3.png" width="500px" border=1>
+<img alt="仮想ネットワーク" src="images/apim-deploy-vnet-internal-3.png" width="500px" border=1 />
 
 *プロトコル設定、タグの設定は飛ばして*　「確認とインストール」タブをクリック
 
 #### 2.5. 確認とインストールタブ
 入力内容のチェックが終わると、画面下部の「作成」ボタンが有効になるので「作成」ボタンをクリックしてAPIMの作成を開始
 
-<img alt="確認とインストール" src="../images/install-confirm.png" width="400px" border=1>
+<img alt="確認とインストール" src="../images/install-confirm.png" width="400px" border=1 />

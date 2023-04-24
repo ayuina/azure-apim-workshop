@@ -19,7 +19,7 @@ VNETを利用してないAzure API Managementのネットワークの変更で�
 
 ### 1.1 ポータル画面場部の 「>_」アイコンをクリックして、Cloud Shellを開始
 
-<img src="images/start-cloudshell.png" alt="Cloud Shell" width="500px" />
+<img src="images/start-cloudshell.png" alt="Cloud Shell" width="500px" border=1 />
 
 ### 1.2 NSGの設定ファイル(CSV)とインポート用スクリプトをダウンロード
 
@@ -41,7 +41,7 @@ wget https://raw.githubusercontent.com/akubicharm/azure-apim-workshop/main/apim-
 |ResourceGroup|APIMがデプロイされているリソースグループ名|
 |FilePath|./nsg.csv|
 
-<img src="images/network-importnsg.png" alt="Cloud Shell" width="500px" />
+<img src="images/network-importnsg.png" alt="Cloud Shell" width="500px" border=1 />
 
 ## 2. パブリックIPアドレスの作成
 
@@ -49,15 +49,15 @@ wget https://raw.githubusercontent.com/akubicharm/azure-apim-workshop/main/apim-
 
 Azureポータル画面でリソースグループを選択し、右Pane上部の「+作成」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-1.png" alt="pip1" width="300px" />
+<img src="images/apim-vnet-internal-1.png" alt="pip1" width="300px" border=1 />
 
 ### 2.2 マーケットプレイスの検索フィールドに「パブリックIP」と入力し、一覧から「パブリックIPアドレス」を選択
 
-<img src="images/apim-vnet-internal-2.png" alt="pip2" width="300px" />
+<img src="images/apim-vnet-internal-2.png" alt="pip2" width="300px" border=1 />
 
 ### 2.3 「作成」ボタンをクリック
 
-<img src="images/apim-vnet-internal-3.png" alt="pip3" width="300px" />
+<img src="images/apim-vnet-internal-3.png" alt="pip3" width="300px" border=1 />
 
 ### 2.4 パラメータを入力してパブリックIPアドレスを作成
 
@@ -78,7 +78,7 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 
 確認が終了したら、画面下部の「作成」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-4.png" alt="pip3" width="500px" />
+<img src="images/apim-vnet-internal-4.png" alt="pip3" width="500px" border=1  />
 
 
 ## 3. 仮想ネットワークの作成とNSGの割り当て
@@ -86,11 +86,11 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 ### 3.1 Azureポータルで仮想ネットワークの作成を開始
 リソースグループの画面に戻り、右Pane上部の「+作成」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-1.png" alt="vnet1" width="300px" />
+<img src="images/apim-vnet-internal-1.png" alt="vnet1" width="300px" border=1 />
 
 ### 3.2  マーケットプレイスの検索フィールドに「VNET」と入力し、一覧から「Virtual Network」を選択
 
-<img src="images/apim-vnet-internal-5.png" alt="vnet2" width="300px" />
+<img src="images/apim-vnet-internal-5.png" alt="vnet2" width="300px" border=1 />
 
 次の画面で「作成」ボタンをクリックして作成を開始します。
 
@@ -109,7 +109,7 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 
 上記を入力し、画面下部の「次: IPアドレス>」をクリック
 
-<img src="images/apim-vnet-internal-6.png" alt="vnet3" width="500px" />
+<img src="images/apim-vnet-internal-6.png" alt="vnet3" width="500px" border=1 />
 
 #### IPアドレスタブ
 
@@ -122,11 +122,12 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 
 ダイアログ下部の「追加」ボタンをクリック
 
-<img src="images/apim-vnet-internal-7.png" alt="vnet4" width="500px" />
+<img src="images/apim-vnet-internal-7.png" alt="vnet4" width="500px" border=1 />
 
 
 追加したサブネットが一覧に表示されされていることを確認し、画面下部の「確認および作成」ボタンをクリックし、「検証に成功しました」と表示されたら画面下部の「作成」ボタンをクリックします。
-<img src="images/apim-vnet-internal-8.png" alt="vnet5" width="500px" />
+
+<img src="images/apim-vnet-internal-8.png" alt="vnet5" width="500px" border=1 />
 
 
 ### 3.4 サブネットにネットワークセキュリティグループを割り当て
@@ -134,7 +135,7 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 仮想ネットワークの管理画面の右Paneで「サブネット」をクリックしサブネット一覧を表示し、サブネット一覧から「apim」を選択します。
 表示されたダイアログのネットワークセキュリティグループのプルダンから、「1」の手順で作成したネットワークセキュリティグループを選択し、ダイアログ下部の「保存」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-9.png" alt="vnet5" width="500px" />
+<img src="images/apim-vnet-internal-9.png" alt="vnet5" width="500px" border=1 />
 
 ## 4. Azure API Managementのネットワークの更新
 
@@ -142,7 +143,7 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 
 ### 4.2 右Paneのネットワークをクリックし、仮想ネットワークのラジオボタンで「内部」にチェック
 
-<img src="images/apim-vnet-internal-update-1.png" alt="apimupdate1" width="500px" />
+<img src="images/apim-vnet-internal-update-1.png" alt="apimupdate1" width="500px" border=1 />
 
 ### 4.3 一覧の「サブネットを選択してください」をクリックし、仮想ネットワーク設定ダイアログでパラメータを入力
 
@@ -154,9 +155,9 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 |サブネット|apim|
 |管理パブリックIPアドレス|apimpip|
 
-<img src="images/apim-vnet-internal-update-2.png" alt="apimupdate1" width="500px" />
+<img src="images/apim-vnet-internal-update-2.png" alt="apimupdate1" width="500px" border=1 />
 
 
 ### 4.4 仮想ネットワークタブの「保存」ボタンをクリックして設定を保存
 
-<img src="images/apim-vnet-internal-update-3.png" alt="apimupdate1" width="500px" />
+<img src="images/apim-vnet-internal-update-3.png" alt="apimupdate1" width="500px" border=1 />
