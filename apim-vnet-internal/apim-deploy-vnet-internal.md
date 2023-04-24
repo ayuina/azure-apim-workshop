@@ -120,4 +120,4 @@ __インスタンスの詳細__
 
 ---
 <a href="readme.md">↑メニュー</a>
-<a href="setpu-appgw.md">次へ→</a>
+<a href="setup-appgw.md">次へ→</a>
