@@ -1,6 +1,6 @@
 # Azure API Managementのネットワークの変更
 
-ネットワークの準備でやることは以下の通りです
+VNETを利用してないAzure API Managementのネットワークの変更でやることや以下の通りです。
 
 0. Cloud Shellの準備
 1. ネットワークセキュリティグループ(NSG)の作成

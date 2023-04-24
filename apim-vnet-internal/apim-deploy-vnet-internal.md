@@ -1,6 +1,6 @@
 # 内部仮想ネットワークを利用するAzure API Managementのデプロイ
 
-ネットワークの準備でやることは以下の通りです
+内部仮想ネットワークを利用するAzure API Managementのデプロイでやることは以下の通りです。
 
 1. パブリックIPアドレスの作成
 2. Azure API Managementのデプロイ
