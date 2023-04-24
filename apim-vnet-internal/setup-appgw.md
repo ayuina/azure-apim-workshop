@@ -232,27 +232,7 @@
 <img src="images/apim-appgw-deploy-15.png" alt="aggpw deploy" width="300px" border=1>
 
 
-## 4. Application GatewayのパスベースのURLルーティングの設定
-
-### 4.1 リスナーの追加
-
-Application Gatewayの管理画面の右Paneで「リスナー」をクリックし、左Pane上部の「+リスナーの追加」をクリックしてリスナーを追加します。
-
-パラメータを入力し「追加」ボタンをクリックします。
-
-|名称|値|
-|---|---|
-|リスナー名|extlistener|
-|フロントエンドIP|パブリック|
-|プロトコル|HTTP|
-|ポート|8080|
-|追加設定|
-|リスナーの種類|マルチサイト|
-|ホストの種類|単一|
-|ホスト名|ext.example.com|
-|エラーページのURL|いいえ|
-
-
-<img src="images/apim-appgw-pathbase-routing-1.png" alt="url routing" width="500px" border=1>
-
-### 4.
+---
+<a href="apim-deploy-vnet-internal.md">←戻る</a>
+<a href="readme.md">↑メニュー</a>
+<a href="validate-apim-vnet-internal.md">次へ→</a>

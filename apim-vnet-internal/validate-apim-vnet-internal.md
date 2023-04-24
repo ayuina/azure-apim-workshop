@@ -37,6 +37,6 @@
 
 
 
-
-
-
+---
+<a href="setup-appgw.md">←戻る</a>
+<a href="readme.md">↑メニュー</a>

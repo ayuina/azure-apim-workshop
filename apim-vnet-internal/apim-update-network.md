@@ -86,11 +86,11 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 ### 3.1 Azureポータルで仮想ネットワークの作成を開始
 リソースグループの画面に戻り、右Pane上部の「+作成」ボタンをクリックします。
 
-<img src="images/apim-vnet-internal-1.png" alt="vnet1" width="300px" border=1 />
+<img src="images/apim-vnet-internal-1.png" alt="vnet1" width="400px" border=1 />
 
 ### 3.2  マーケットプレイスの検索フィールドに「VNET」と入力し、一覧から「Virtual Network」を選択
 
-<img src="images/apim-vnet-internal-5.png" alt="vnet2" width="300px" border=1 />
+<img src="images/apim-vnet-internal-5.png" alt="vnet2" width="400px" border=1 />
 
 次の画面で「作成」ボタンをクリックして作成を開始します。
 
@@ -161,3 +161,8 @@ Azureポータル画面でリソースグループを選択し、右Pane上部�
 ### 4.4 仮想ネットワークタブの「保存」ボタンをクリックして設定を保存
 
 <img src="images/apim-vnet-internal-update-3.png" alt="apimupdate1" width="500px" border=1 />
+
+
+---
+<a href="readme.md">↑メニュー</a>
+<a href="setpu-appgw.md">次へ→</a>

@@ -116,3 +116,8 @@ __インスタンスの詳細__
 入力内容のチェックが終わると、画面下部の「作成」ボタンが有効になるので「作成」ボタンをクリックしてAPIMの作成を開始
 
 <img alt="確認とインストール" src="../images/install-confirm.png" width="400px" border=1 />
+
+
+---
+<a href="readme.md">↑メニュー</a>
+<a href="setpu-appgw.md">次へ→</a>
