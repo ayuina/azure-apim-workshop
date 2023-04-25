@@ -1,12 +1,19 @@
 # Azure Application Gatewayのデプロイ
 
+Azure API Managementのフロントエンドに配置するAzure Application Gatewayのデプロイでは以下の作業をします。
+
+
 1. プライベートDNSゾーンの作成
-2. 仮想ネットワークにサブネットを追加
-3. Azure Application GatewayのデプロイとBasicなリスナーの設定）
+2. 仮想ネットワークにAzure Application Gateway用のサブネットを追加
+3. Azure Application GatewayのデプロイとBasicなリスナーの設定
 4. Azure Application GatewayのパスベースのURLルーティングの設定
 
 
 ## 1. プライベートDNSゾーンの作成と設定
+
+Azure API ManagementのGatewayの名前解決をするためにプライベートDNSゾーンを作成します。
+
+プライベートDNSゾーンを作成し、仮想ネットワークとリンクすることで、仮想ネットワーク内のサービスが名前解決できるようにします。
 
 ### 1.1 https://portal.azure.com/#create/Microsoft.PrivateDnsZone-ARM にアクセスして、プライベートDNSゾーンの作成を開始
 
