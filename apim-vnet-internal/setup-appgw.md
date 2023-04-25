@@ -23,6 +23,8 @@
 
 作成が終わったら「リソースに移動」ボタンをクリックし、プライベートDNSゾーンの管理画面を表示します。
 
+<img src="images/apim-dnszone-0.png" width="300px" border=1 />
+
 ### 1.2 プライベートDNSゾーンの管理画面の左Paneで「仮想ネットワークリンク」をクリックし、表示された右Pane上部の「+追加」をクリック
 
 <img src="images/apim-dnszone-1.png" width="300px" border=1 />
