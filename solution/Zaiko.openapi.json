@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Zaiko",
+        "description": "",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://www.example.com/zaiko"
+        }
+    ],
+    "paths": {
+        "/list": {
+            "get": {
+                "summary": "getList",
+                "operationId": "getlist",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "name": "coffee",
+                                        "qty": 100,
+                                        "unitprice": 1000
+                                    },
+                                    {
+                                        "name": "tea",
+                                        "qty": 120,
+                                        "unitprice": 22000
+                                    },
+                                    {
+                                        "name": "chocolate",
+                                        "qty": 100,
+                                        "unitprice": 500
+                                    },
+                                    {
+                                        "name": "cookie",
+                                        "qty": 10,
+                                        "unitprice": 800
+                                    },
+                                    {
+                                        "name": "beer",
+                                        "qty": 50,
+                                        "unitprice": 300
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}

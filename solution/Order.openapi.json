@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Order",
+        "description": "",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://www.example.com/order"
+        }
+    ],
+    "paths": {
+        "/create": {
+            "post": {
+                "summary": "createOrder",
+                "operationId": "createorder",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "orderId": 1,
+                                    "orderDate": "2023-05-01T10:23:45.0000000+00:00",
+                                    "orderStatus": "created"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/accept": {
+            "get": {
+                "summary": "accept order",
+                "operationId": "accept-order",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "orderId": 1,
+                                    "orderDate": "2023-05-01T10:23:45.0000000+00:00",
+                                    "orderStatus": "Accepted"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
