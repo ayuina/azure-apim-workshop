@@ -23,7 +23,7 @@ APIM のログやメトリックを利用するための設定をしていきま
 
 ログ分析(OMS)が表示されるので、それをクリックしてLog Analyticsワークスペースの作成を開始します。
 
-<img src="images/oms-1.png" width=300px />
+<img src="images/oms-1.png" width="400px" />
 
 #### 1-4. 基本タブでパラメータを入力してワークスペースを作成
 
@@ -51,7 +51,7 @@ APIM のログやメトリックを利用するための設定をしていきま
 
 Applicaiton Insightsが表示されるので、それをクリックしてアプリケーションインサイトの作成を開始します。
 
-<img src="images/appinsights-1.png" width=300px />
+<img src="images/appinsights-1.png" width="400px" />
 
 
 #### 2-4. 基本タブでパラメータを入力してアプリケーションインサイトを作成
@@ -68,18 +68,18 @@ Applicaiton Insightsが表示されるので、それをクリックしてアプ
 |サブスクリプション|ワークショップで利用するサブスクリプションを選択|
 |Log Analyticsワークスペース|前の手順で作成したログ分析ワークスペースを選択|
 
-<img src="images/appinsights-2.png" width=300px />
+<img src="images/appinsights-2.png" width="500px" />
 
 
 ### 3. API ManagementでのApplication Insightsの有効化
 
 #### 3-1. APIMの管理画面の左Paneで「Application Insighits」をクリックし、右Pane上部の「+追加」をクリック
 
-<img src="images/appinsights-3.png" width=300px />
+<img src="images/appinsights-3.png" width="400px" />
 
 #### 3-2. ロガーの追加ダイアログで、前の手順で作成したApplication Insightsを選択して「作成」ボタンをクリック
 
-<img src="images/appinsights-4.png" width=300px />
+<img src="images/appinsights-4.png" width="400px" />
 
 
 ## ４. API Managementのログとメトリクスの利用
