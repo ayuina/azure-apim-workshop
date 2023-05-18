@@ -19,17 +19,37 @@ APIまたはProducts(製品)に対してAPIキーによるアクセス制御を�
 
 #### 1-1. API Managementの管理ポータルの左Paneで「サブスクリプション」をクリック
 スコープのカラムで「製品:Starter」「製品:Unlimited」のSubscriptionがあることを確認します。
-<img src="images/subs-list-1.png" width="400px" />
+<img src="images/subs-list-1.png" width="500px" />
 
 
 #### 1-2. API Managementの管理ポータルの左Paneで「製品」をクリックし、右Paneの一覧から「Starter」をクリック
 
-<img src="images/prod-default-1.png" width="300px" />
+<img src="images/prod-default-1.png" width="400px" />
 
 #### 1-3. Starterのポリシーを確認
 
 左Paneで「ポリシー」をクリックし、表示されたポリシー設定のInbound processingの「</>」をクリックして詳細を確認します。
+
 このポリシーでは60秒に5回呼び出し可能、604800(1週間)で100回呼び出せることが定義されています。Starter製品に関連づけられたSubscriptionを利用してAPIをコールするユーザには、このポリシーが適用されます。
+
+```
+<policies>
+    <inbound>
+        <rate-limit calls="5" renewal-period="60" />
+        <quota calls="100" renewal-period="604800" />
+        <base />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+```
 
 <img src="images/prod-starter-1.png" width="400px" />
 
@@ -76,33 +96,31 @@ API　Managementの管理画面の右Paneで「サブスクリプション」を
 #### 3-2. Echo APIの「GET Retrieve resouce」のRequest URLを確認
 API一覧から「Echo API」を選択し、右Pane上部の「Test」タブを選択します。表示されたOperation一覧から「GET Retrieve resource」を選択しRequest URLを確認します。
 
-Request URLの例）`https://apimpub.azure-api.net/echo/resource?param1=sample`
+Request URLの例）`https://myapim.azure-api.net/echo/resource?param1=sample`
 
 
 #### 3-3. ブラウザから　APIを呼ぶ
 
 クエリパラメータにサブスクリプションキーを指定して呼びます。
 
-`https://[APIMのFQDN]/echo/resource?param1=sample&subscription-key=[コピーしておいたSubscriptionkey]`
+```
+https://[APIMのFQDN]/echo/resource?param1=sample&subscription-key=[コピーしておいたSubscriptionkey]
+```
+
+subscription-keyをクエリパラメータに指定しなかった場合は、次のようなエラーメッセージが帰ってきます。
+
+```
+{ "statusCode": 401, "message": "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API." }
+```
 
 
 
 ## APIの追加
 
 次の図のような構成にあるように、新たなAPIを追加します。
-<img src="images/subs-api-1.png" />
+<img src="images/subs-api-1.png" width="500px"/>
 
 
-
-追加した　Order APIのOperation一覧で「All operations」をクリックし、Inbound Processing のセクションで「+Add policy」をクリックします。
-
-<img src="images/subs-add-mock-policy-1.png" width=300px/>
-
-ポリシーの一覧でMock Responsesを選択肢、編集画面の内容は変更せずに「Save」ボタンをクリックしてポリシーを保存します。
-
-<img src="images/subs-add-mock-policy-2.png" width=300px/>
-
-<img src="images/subs-add-mock-policy-3.png" width=300px/>
 
 
 ### 4. 在庫管理APIのインポート
@@ -125,6 +143,8 @@ APIMの管理ポータルの左Paneで「API」を選択し、「+ Add APIをク
 #### 4-2. Mockレスポンスの設定
 
 追加した　Zaiko APIのOperation一覧で「All operations」をクリックし、Inbound Processing のセクションで「+Add policy」をクリックします。
+
+※ All Operationsでポリシーを設定すると、Order API全体にポリシーが適用されます。
 
 <img src="images/subs-add-mock-policy-1.png" width=300px/>
 
@@ -285,4 +305,14 @@ Postmanの場合
 
 <img src="images/add-subs-1.png" width=300px />
 
+
+### 11. 顧客レビューのサブスクリプションを不要に設定
+
+#### 11-1. APIM管理画面の左Paneで「API」をクリックし、「custReview」のAPIを選択
+
+#### 11-2. サブスクリプション不要に設定
+
+右Pane上部の「Settings」タブをクリックし、画面の中央あたりのSubscriptionセクションの「Subscription required」のチェックをはずします。
+
+<img src="images/subs-add-custreview-2.png" width="500px" />
 
