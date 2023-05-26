@@ -3,18 +3,26 @@
 認証が必要なバックエンドAPIを呼び出すための設定をしていきます。
 バックエンドAPIの認証は、Azure Functions/App Serviceで利用可能なEazyAuthの機能を利用します。
 
+<img src="images/api-front-back-security-1.png" width=500px>
+
 ここでやることは次のとおりです。
 
-1. APIMのポリシーの設定(JWTの検証)
+1. APIMのポリシーの設定(Json Web Tokenの検証)
 2. JWTの検証のテスト
 3. サンプルのAzure Functionの認証の設定
 4. Azure Functionsの認証の動作確認
 5. フロントエンドアプリのデプロイ
 6. フロントエンドアプリのデプロイの認証の設定
 7. フロントエンドアプリの認証の動作確認
+８. フロントアプリにバクエンドへのアクセス権を付与
+9. トラブルシューティング
+10. APIMポリシーの設定更新
+11. フロントエンドアプリからAPIMを経由して、バックエンドアプリを呼ぶ動作確認
 
 
 ## APIの設定
+
+APIM のInbound Policyを設定し、期待するJava Web Tokenがリクエストヘッダに設定されている場合のみ、バックエンドのAPIを呼び出せるようにします。
 
 ### 1. APIMのポリシー設定(JWTの検証)
 
@@ -250,10 +258,6 @@ IDプロバイダの編集画面のアプリケーション（クライアント
 #### 8-5. クラウドシェルで設定を実行
 
 ```
-export RG=[自分のリソースグループ]
-export FRONT=[Webアプリの名前]
-
-```
 authSettings=$(az webapp auth show -g [自分のリソースグループ] -n [フロントアプリの名前])
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://[コピーしたアプリケーション（クライアント)ID]/user_impersonation"]}')
 az webapp auth set --resource-group [自分のリソースグループ] --name [フロントアプリの名前] --body "$authSettings"
@@ -262,15 +266,118 @@ az webapp auth set --resource-group [自分のリソースグループ] --name [
 例）
 ```
 authSettings=$(az webapp auth show -g apimdemo -n frontappakubicharm)
-authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://a370e1cd-f69b-40b8-8052-00fe1938a0c4/user_impersonation"]}')
+authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://325510f9-bd47-4830-9fba-84188014eb7e/user_impersonation"]}')
 az webapp auth set --resource-group apimdemo --name frontappakubicharm --body "$authSettings"
 ```
+#### 8-6. フロントエンドアプリとバックエンドの動作確認
+
+フロントエンドアプリをブラウザのシークレットモードで開き「Log in」のリンクをクリックしてAzure ADで認証します。
+その後、レビューのFunction直接呼び出しのリンクをクリックし、商品レビューの一覧が表示されることを確認します。
+
+
+### 9. トラブルシューティング : 管理者またはユーザの同意が必要です
+フロントアプリケーションのログイン時に「管理者またはユーザの同意が必要です」となった場合は、バックエンドアプリの承認されたクライアントアプリケーションとして登録する必要があります。
+
+<img src="images/add-auth-front-9.png" width=300px>
+
+####　9-1. バックエンドアプリケーションのIDプロバイダ設定を開く
+
+バックエンドアプリ(Functions)の管理画面の左Paneで「認証」をクリックし、右PaneのIDプロバイダのリンクをクリックしてIDプロバイダの管理画面を表示します。
+
+<img src="images/add-auth-front-10.png" width=300px>
+
+#### 9-2. バックエンドアプリの承認済みクライアントとしてフロントエンドアプリのアプリケーション(クライアント)IDを登録
+
+左Paneで「APIの公開」を選択し、右Paneで「＋　クライアントアプリケーションの追加」をクリックします。
+
+<img src="images/add-auth-front-10.png" width=500px>
+
+#### 9-3. クライアントアプリケーションの追加
+
+表示されたクライアントアプリケーションの追加ダイアログに以下を入力し、「アプリケーションの追加」ボタンをクリックします。
+
+|名称|値|
+|---|---|
+|クライアントID|フロントアプリケーションのアプリ(クライアント)ID
+|承認済みのスコープ|チェック|
+
+クライアントIDは、フロントアプリ(Web App)の管理画面の左Paneで「認証」を選択し、右Paneの中央あたりに表示された「アプリ（クライアント）ID」をコピーする
+
+<img src="images/add-auth-front-12.png" width=400px>
+
+
+### 10. APIMのポリシーの更新
+
+Azure ADで認証済みのユーザのみ、バックエンドのAPIをコールできるようにAPIMのJson Web Tokenの検証ポリシーを更新します。
+
+
+#### 10-1. トークン対象ユーザの確認とOpenID URlの確認
+
+フロントアプリ(Web App)の管理画面の左Paneで「認証」を選択し、右PaneのIDプロバイダの編集の鉛筆アイコンをクリックします。
+
+許可されるトークン対象ユーザをメモ帳などにコピーしておきます。
+確認したら、右上の「×」をクリックして「IDプロバイダの編集」画面を閉じ、フロントアプリの管理画面に戻ります。
+
+<img src="images/apim-jwt-policy-2.png" width=300px>
+
+IDプロバイダのリンクをクリックします。
+
+<img src="images/apim-jwt-policy-3.png" width=300px>
+
+
+開いた認証画面の上部の「エンドポイント」をクリックして、エンドポイントのダイアログを開き「OpenID Connect メタデータドキュメント」をコピーしてメモ帳などに貼っておきます。
+
+<img src="images/apim-jwt-policy-4.png" width=500px>
+
+#### 10-2. validate-jwt ポリシーの編集
+
+APIMの管理画面の左Paneで「API」を選択し、API一覧で「Review」を選択します。
+Inbound processingの「validate-jwt」の右の鉛アイコンをクリックして編集します。
+
+<img src="images/apim-jwt-policy-5.png" width=500px>
+
+※ 「validate-jwt」をクリックするとコードでの編集モード、鉛筆アイコンをクリックするとフォームでの編集モードになります。
+
+
+最初に設定した Issuer signing keysの値の右のゴミ箱アイコンをクリックして値を削除します。
+
+Required claimsの「+ Add claim」をクリックをしてclaimの設定をします。
+
+|名称|値|
+|---|---|
+|Name|aud|
+|Match|Any claim|
+|Separator|デフォルトのまま|
+|Values|コピーしておいたトークンの対象ユーザ<br>例) api://63aae6cc-6e6e-4f71-bf95-003ce037ec64|
+
+OpenID URlsの「+ Add OpenID URL」をクリックしてコピーしておいたOpenID URLを貼り付けます
+
+例）`https://login.microsoftonline.com/16b3c013-d300-468d-ac64-7eda0820b6d3/v2.0/.well-known/openid-configuration`
+
+
+<img src="images/apim-jwt-policy-6.png" width=300px>
+
+
+画面下部の「Save」ボタンをクリックしてvalidate-jwtポリシーを保存します。
+
+
+
+### 11. フロントエンドアプリからAPIMを経由して、バックエンドアプリを呼ぶ動作確認
+
+#### 11-1. フロントエンドアプリをブラウザのプライベートモードで開く
+
+#### 11-2. Log InリンクをクリックしてAzur ADでログイン
+
+#### 11-3. 「レビューのAPI呼び出し」のリンクをクリック
+
+レビュー一覧が表示されることを確認します。
+
 
 * 参考
     * https://learn.microsoft.com/ja-jp/azure/app-service/tutorial-auth-aad?pivots=platform-linux
 
 
-
+<!--
 JWTの確認機能
 
 https://learn.microsoft.com/ja-jp/azure/api-management/api-management-howto-protect-backend-with-aad
@@ -284,3 +391,4 @@ https://learn.microsoft.com/ja-jp/azure/active-directory/develop/id-tokens
 
 フロントアプリからのトークンの渡し方かも
 https://learn.microsoft.com/ja-jp/azure/app-service/tutorial-auth-aad?pivots=platform-linux
+-->
