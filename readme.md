@@ -19,6 +19,8 @@
 
 11. [認証](api-security.md)
 
+12. [内部VNETでのAPIMの構成](apim-vnet-internal/readme.md)
+
 
 ## 参考情報
 * [Microsoft Learn : AzureでのAPI統合の設計](https://learn.microsoft.com/ja-jp/training/paths/architect-api-integration/)　Azureのサンドボックス環境が利用できるので、自習用には使いやすい
