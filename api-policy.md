@@ -214,6 +214,7 @@ __Frontend__
 <img src="images/add-apim-policy-outboundsetbody-4.png" width="400px" />
 ---
 
-<a href="api-policy.md">←戻る</a>
+<a href="api-logicapp.md">←戻る</a>
 <a href="readme.md">↑メニュー</a>
-→ 次へ
+<a href="api-subscription.md">→ 次へ</a>
+
