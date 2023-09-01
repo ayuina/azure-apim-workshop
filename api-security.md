@@ -52,6 +52,10 @@ APIM のInbound Policyを設定し、期待するJava Web Tokenがリクエス�
 
 <img src="images/add-apim-policy-jwt-3.png" width="400px">
 
+#### 1-5. Review API の呼び出しでサブスクリプションを不要にする
+
+左Paneで「API」を選択しAll APIsから「Review」をクリックし、Settingsセクションの「Subscription required」のチェックを外します。
+
 ### 2. JWT検証のテスト
 
 #### 2-1. JWTなしでlistReviewsのテスト
