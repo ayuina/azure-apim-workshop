@@ -383,6 +383,9 @@ IDプロバイダのリンクをクリックします。
 
 <img src="images/apim-jwt-policy-4.png" width=500px>
 
+同じようにバックエンドアプリ（Functions）の管理画面から、トークン対象ユーザーをメモ帳などにコピーしておきます。
+「OpenID Connect メタデータドキュメント」 はフロントアプリと共通です。
+
 #### 10-2. validate-jwt ポリシーの編集
 
 APIMの管理画面の左Paneで「API」を選択し、API一覧で「Review」を選択します。
@@ -392,21 +395,33 @@ Inbound processingの「validate-jwt」の右の鉛アイコンをクリック�
 
 ※ 「validate-jwt」をクリックするとコードでの編集モード、鉛筆アイコンをクリックするとフォームでの編集モードになります。
 
+#### 10-3. 最初に設定した Issuer signing keysの値の右のゴミ箱アイコンをクリックして値を削除します。
 
-最初に設定した Issuer signing keysの値の右のゴミ箱アイコンをクリックして値を削除します。
+#### 10-4. フロントアプリからの呼び出してあることを検証
 
 Required claimsの「+ Add claim」をクリックをしてclaimの設定をします。
 
 |名称|値|
 |---|---|
-|Name|aud|
+|Name|appid|
 |Match|Any claim|
 |Separator|デフォルトのまま|
-|Values|コピーしておいたトークンの対象ユーザ<br>例) api://63aae6cc-6e6e-4f71-bf95-003ce037ec64|
+|Values|コピーしておいたトークンの対象ユーザの GUID 部分<br>例) aaaaaaaa-bbbb-cccc-dddd-000000000000|
 
-OpenID URlsの「+ Add OpenID URL」をクリックしてコピーしておいたOpenID URLを貼り付けます
+#### 10-5. バックエンドアプリのアクセス許可を持っていることを検証
 
-例）`https://login.microsoftonline.com/16b3c013-d300-468d-ac64-7eda0820b6d3/v2.0/.well-known/openid-configuration`
+「Audiences」にバックエンドアプリ（Functions）の管理画面からコピーしておいたトークンの対象ユーザを入力
+
+例）api://xxxxxxxx-yyyy-zzzz-wwww-000000000000
+
+#### 10-6. OpenID Connect メタデータドキュメントを設定
+
+OpenID URlsの「+ Add OpenID URL」をクリックして、コピーしておいたOpenID URLの **バージョン番号部分を除去したもの**を貼り付けます
+
+- コピーした値の例
+    - `https://login.microsoftonline.com/16b3c013-d300-468d-ac64-7eda0820b6d3/v2.0/.well-known/openid-configuration`
+- 入力する値の例
+    - `https://login.microsoftonline.com/16b3c013-d300-468d-ac64-7eda0820b6d3/.well-known/openid-configuration`
 
 
 <img src="images/apim-jwt-policy-6.png" width=300px>
@@ -414,7 +429,24 @@ OpenID URlsの「+ Add OpenID URL」をクリックしてコピーしておい�
 
 画面下部の「Save」ボタンをクリックしてvalidate-jwtポリシーを保存します。
 
+### 10-7. validate-jwt ポリシーの設定内容
 
+上記の手順で設定された validate-jwt ポリシーを コード形式（XML）で確認すると以下のようになります。
+各項目の意味は [ポリシーリファレンス](https://learn.microsoft.com/ja-jp/azure/api-management/validate-jwt-policy) のドキュメントで確認してみてください。
+
+```xml
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Not Authorized...">
+    <openid-config url="https://login.microsoftonline.com/16b3c013-d300-468d-ac64-7eda0820b6d3/.well-known/openid-configuration" />
+    <audiences>
+        <audience>api://xxxxxxxx-yyyy-zzzz-wwww-000000000000</audience>
+    </audiences>
+    <required-claims>
+        <claim name="appid" match="any">
+            <value>aaaaaaaa-bbbb-cccc-dddd-000000000000</value>
+        </claim>
+    </required-claims>
+</validate-jwt>
+```
 
 ### 11. フロントエンドアプリからAPIMを経由して、バックエンドアプリを呼ぶ動作確認
 
@@ -430,6 +462,16 @@ OpenID URlsの「+ Add OpenID URL」をクリックしてコピーしておい�
 * 参考
     * https://learn.microsoft.com/ja-jp/azure/app-service/tutorial-auth-aad?pivots=platform-linux
 
+#### 11-4. トラブルシュート
+
+フロントエンドアプリでのサインイン（Log In リンクのクリック）で取得したアクセストークンは Web Apps の[トークンストア](https://learn.microsoft.com/ja-jp/azure/app-service/configure-authentication-oauth-tokens)に格納されています。
+- サーバーサイドでは `x-ms-token-aad-access-token` リクエストヘッダーから取得できます
+    - [HtmlController.kt](https://github.com/akubicharm/azure-apim-workshop-frontapp/blob/main/src/main/kotlin/com/example/demo/controller/HtmlController.kt) の `guReview` メソッドを参照すると、トークンの値がログ出力されているため ログ ストリーム で値が確認できます
+    - この値は API Management リクエスト時に Authorization ヘッダーに設定して送信されています
+- クライアントサイド（ブラウザ）では `/.auth/me` エンドポイントからも値が確認できます
+    - 別タブで `https://[フロントエンドアプリのURL]/.auth/me` を開くと JSON が表示されます
+
+ここで確認したアクセストークンの値を https://jwt.ms などでデコードして、validate-jwt ポリシーの設定値と一致しているか確認してみましょう。
 
 <!--
 JWTの確認機能
