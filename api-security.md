@@ -98,7 +98,8 @@ https://jwt.io/ でJWTを生成することができます。APIMのJWTの検証
 認証の設定をすると、Azure ADアプリケーション（サービスプリンシパルの一種）として登録されます。
 
 ※サービスプリンシパルは、Azureのリソースを操作するためのID
-サービスプリンシパルの詳細については[アプリケーションをサービスプリンシパル](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/app-objects-and-service-principals?tabs=browser#application-object)を参照してください。
+
+サービスプリンシパルの詳細については[アプリケーションとサービスプリンシパル](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/app-objects-and-service-principals?tabs=browser#application-object)を参照してください。
 
 
 #### 3-1. AzureポータルでサンプルのFunctionsの管理画面を開く
