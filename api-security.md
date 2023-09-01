@@ -316,6 +316,19 @@ az webapp auth set --resource-group apimdemo --name frontappakubicharm --body "$
 
 > ここではフロントアプリ（Web Apps）からバックエンド API（Functions） を直接呼び出しているため、API Management を経由していません。
 
+#### 8-7. フロントエンドアプリのログとデバッグ
+
+フロントエンドアプリの動作確認でエラーが発生した場合には、ログストリームやソースコード（[HtmlController.kt](https://github.com/akubicharm/azure-apim-workshop-frontapp/blob/main/src/main/kotlin/com/example/demo/controller/HtmlController.kt) の `gutFunc` メソッド）を確認してみてください。
+
+- Azure ポータルで Web Apps の管理画面を開く
+- 左 Pane の「App Service ログ」をクリック
+    - アプリケーションのログ記録（ファイルシステム）を「オン」にする
+    - 「レベル」ドロップダウンで「詳細」を選択
+    - 「保存」ボタンをクリック
+- 左 Pane の「ログ ストリーム」をクリック
+    - 「Welcome, you are now connected to log-streaming service.」が表示されるのを待つ
+    - この画面を表示したままで前述の動作確認（シークレットモードで開いているブラウザ）を行う
+
 ### 9. トラブルシューティング : 管理者またはユーザの同意が必要です
 フロントアプリケーションのログイン時に「管理者またはユーザの同意が必要です」となった場合は、バックエンドアプリの承認されたクライアントアプリケーションとして登録する必要があります。
 
