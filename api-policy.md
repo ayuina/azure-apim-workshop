@@ -51,6 +51,12 @@
 
 #### 1-6. ブラウザでURLを複数回開く
 
+rate-limit に引っかからない場合は HTML が表示され、引っかかった場合は下記のようなエラーが表示される。
+
+```json
+{ "statusCode": 429, "message": "Rate limit is exceeded. Try again in 23 seconds." }
+```
+
 #### 1-7. Inbound processingの`</>`ボタンをクリックしてエラー処理をカスタマイズ
 <img src="images/add-apim-policy-ratelimit-errorhandling-1.png" width="500px" />
 
@@ -64,6 +70,10 @@
         </return-response>
     </on-error>
 ```
+
+#### 1-9. ブラウザでURLを複数回開く
+
+rate-limit に引っかからない場合は HTML が表示され、引っかかった場合はポリシーに記述したメッセージ `Too many calls!!!`が表示される。
 
 
 ## 2. モックレスポンス
