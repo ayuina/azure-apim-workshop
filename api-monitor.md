@@ -41,7 +41,7 @@ APIM のログやメトリックを利用するための設定をしていきま
 |地域|Japan East|
 
 
-### 2. アプリケーションインサイトの作成
+### 2. Application Insightsの作成
 
 #### 2-1. ワークショップで利用するリソースグループを選択
 
@@ -111,7 +111,7 @@ APIM管理画面の左Paneでメトリックを選択すると、Request数な�
 
 <img src="images/apim-metrics-1.png">
 
-### Application　Insightsの利用
+### Application Insightsの利用
 
 #### アプリケーションマップ
 
