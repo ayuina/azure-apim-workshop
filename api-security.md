@@ -161,13 +161,42 @@ Azure ADのサインインのダイアログが表示されるので、IDを入�
 
 ### 5. フロントアプリのデプロイ
 
-構成に設定する環境変数
+#### 5-1. Azure Web Apps のデプロイ
+
+フロントアプリを動作させるための Azure Web Apps をデプロイします。
+Azure Cloud Shell を起動して、次のコマンドを実行します。
+リソースグループ名（RG環境変数）やアプリケーション名（APP環境変数）の値は、自分の環境に合わせて変更してください。
+
+```bash
+export RG=apimdemo
+export APP=frontappakubicharm
+
+az appservice plan create -g $RG -n "${APP}-plan"
+az webapp create -g $RG -n $APP -p "${APP}-plan" -r "java:17:Java SE:17"
+```
+
+#### 5-2. Azure Web Apps 構成設定
+
+下記のように構成設定を行います。
+APIM の名前(apimXX) や Functions の名前(backendappXX)の値は、自分の環境に合わせて変更してください。
+
 |名前|値|
 |---|---|
 |JAVA_OPTS|-Dserver.max-http-header-size=30000|
 |WEBSITES_PORT|8080|
 |APIM_URL|APIMのGatewayのURL<br>例) `https://apimXX.azure-api.net`|
-|FUNC_URL|FunctionsのURL<br>例) `https://frontappXX.azurewebsites.net`|
+|FUNC_URL|FunctionsのURL<br>例) `https://backendappXX.azurewebsites.net`|
+
+Cloud Shell から下記を実行します。
+
+```bash
+az webapp config appsettings set -g $RG -n $APP \
+	--settings \
+		JAVA_OPTS=-Dserver.max-http-header-size=30000 \
+		WEBSITES_PORT=8080 \
+		APIM_URL=https://apimXX.azure-api.net \
+		FUNC_URL=https://backendappXX.azurewebsites.net
+```
 
 <!--
 全般設定でBasic Authenticationをオンにする
@@ -175,9 +204,13 @@ Azure ADのサインインのダイアログが表示されるので、IDを入�
 <img src="images/frontapp-deploy-1.png" width="400px">
 -->
 
+#### 5-2. サンプルアプリケーションのデプロイ
+
+フロントアプリのサンプルコードは [GitHub のレポジトリ](https://github.com/akubicharm/azure-apim-workshop-frontapp) にありますが、
+ここではビルド済みの jar ファイルをデプロイするものとします。
+Cloud Shell から下記を実行してください。
+
 ```
-export RG=apimdemo
-export APP=frontappakubicharm
 az webapp deploy --resource-group $RG --name $APP  --src-url https://github.com/akubicharm/azure-apim-workshop-frontapp/raw/main/artifact/demo-0.0.1-SNAPSHOT.jar   --type jar
 ```
 
