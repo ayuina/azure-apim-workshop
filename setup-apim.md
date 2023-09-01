@@ -49,6 +49,8 @@ __インスタンスの詳細__
 
 <img alt="確認とインストール" src="images/install-confirm.png" width="400px" border=1>
 
+> API Management のデプロイには約 30 分程度かかります。
+
 ## 簡単な動作確認
 
 APIM がデプロイできたら、セットアップ済みのデモAPIを呼んでみます。
