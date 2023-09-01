@@ -56,32 +56,48 @@ __基本タブ__
 <img src="images/logicapp-create-workflow-1.png" alt="ワークフローの作成1" width="500px" />
 <img src="images/logicapp-create-workflow-2.png" alt="ワークフローの作成1" width="500px" />
 
-#### 2-2. 「＋」をクリックしプルダウンメニューで「アクションの追加」をクリック
+#### 2-2. 「要求本文の JSON スキーマ」を入力
+
+```json
+{
+    "properties": {
+        "Location": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+```
+
+#### 2-3. 「＋」をクリックしプルダウンメニューで「アクションの追加」をクリック
 <img src="images/logicapp-create-workflow-3.png" alt="ワークフローの作成1" width="500px" />
 
-#### 2-3. 操作を選択してくださいのダイアログの検索画面で「MSN Weather」と入力してアクションを検索し、「今日の天気を取得する」のアクションをクリック
+#### 2-4. 操作を選択してくださいのダイアログの検索画面で「MSN Weather」と入力してアクションを検索し、「今日の予報を取得する」のアクションをクリック
 
 <img src="images/logicapp-create-workflow-4.png" alt="ワークフローの作成1" width="500px" />
 
-#### 2-4. 場所を入力
-場所の例
-* 東京都,港区
+#### 2-5. 場所を入力
+
+「動的なコンテンツ」から「Location」を選択
 
 <img src="images/logicapp-create-workflow-5.png" alt="ワークフローの作成1" width="500px" />
 
-
-#### 2-5. Responseの本文のテキストフィールドをクリックして、動的コンテンツの一覧を表示。一覧から「responses」をクリック
+#### 2-6. Responseの本文のテキストフィールドをクリックして、動的コンテンツの一覧を表示。一覧から「responses」をクリック
 こうすることで、今日の予報を取得するのアクションの結果がレスポンスの本文に設定される。
 
 <img src="images/logicapp-create-workflow-6.png" alt="ワークフローの作成1" width="500px" />
 
+#### 2-7. 画面上部の「保存」ボタンをクリック
 
-#### 2-6. 画面上部の「保存」ボタンをクリック
+#### 2-8. 画面上部の「トリガーの実行」ボタンをクリックし、プルダウンメニューの「ペイロードで実行」をクリック
 
-#### 2-7. 画面上部の「トリガーの実行」ボタンをクリックし、プルダウンメニューの「実行」をクリック
+<img src="images/logicapp-create-workflow-7.png" alt="ワークフローの作成4" width="500px" />
 
-<img src="images/logicapp-create-workflow-7.png" alt="ワークフローの作成4" width="300px" />
+本文には下記を入力して「実行ボタン」をクリック
 
+```json
+{"Location":"東京都,港区"}
+```
 
 ### 3. Logic Appを　APIとして追加
 
