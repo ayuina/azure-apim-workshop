@@ -362,8 +362,8 @@ az webapp auth set --resource-group apimdemo --name frontappakubicharm --body "$
 
 ### 10. APIMのポリシーの更新
 
-Azure ADで認証済みのユーザのみ、バックエンドのAPIをコールできるようにAPIMのJson Web Tokenの検証ポリシーを更新します。
-
+バックエンドの API の認証設定により、Azure AD で認証済みのユーザーおよびアプリケーションのみがバックエンド API をコールできるようになっています。
+ここでは Web Apps で動作しているフロンエンドアプリのみがバックエンドの API をコールできるように、APIMのJson Web Tokenの検証ポリシーを更新します。
 
 #### 10-1. トークン対象ユーザの確認とOpenID URlの確認
 
