@@ -210,7 +210,7 @@ az webapp config appsettings set -g $RG -n $APP \
 ここではビルド済みの jar ファイルをデプロイするものとします。
 Cloud Shell から下記を実行してください。
 
-```
+```bash
 az webapp deploy --resource-group $RG --name $APP  --src-url https://github.com/akubicharm/azure-apim-workshop-frontapp/raw/main/artifact/demo-0.0.1-SNAPSHOT.jar   --type jar
 ```
 
@@ -235,7 +235,7 @@ Functionsと同様にEazy Authでの認証の設定をしていきます。
 |名称|値|
 |---|---|
 |__基本タブ__|
-|Tenant Type|Workforce|
+|テナントの種類|従業員|
 |__アプリの登録__|
 |アプリの登録の種類|アプリの登録を新規作成する|
 |名前|自動入力されている名称をそのまま利用|
