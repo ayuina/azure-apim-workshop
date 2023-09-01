@@ -262,7 +262,7 @@ Web Appの管理画面上部の規定のドメインに表示されているURL�
 <img src="images/add-auth-front-3.png" width=400px>
 
 
-### 8. フロントエンドがバックエンド（Function)にアクセスするための設定
+### 8. フロントエンドがバックエンド（Function）にアクセスするための設定
 
 #### 8-1. フロントアプリのIDプロバイダ設定を表示
 
@@ -297,14 +297,14 @@ IDプロバイダの編集画面のアプリケーション（クライアント
 
 #### 8-5. クラウドシェルで設定を実行
 
-```
+```bash
 authSettings=$(az webapp auth show -g [自分のリソースグループ] -n [フロントアプリの名前])
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://[コピーしたアプリケーション（クライアント)ID]/user_impersonation"]}')
 az webapp auth set --resource-group [自分のリソースグループ] --name [フロントアプリの名前] --body "$authSettings"
 ```
 
 例）
-```
+```bash
 authSettings=$(az webapp auth show -g apimdemo -n frontappakubicharm)
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://325510f9-bd47-4830-9fba-84188014eb7e/user_impersonation"]}')
 az webapp auth set --resource-group apimdemo --name frontappakubicharm --body "$authSettings"
