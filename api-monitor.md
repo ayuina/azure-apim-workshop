@@ -81,6 +81,10 @@ Applicaiton Insightsが表示されるので、それをクリックしてアプ
 
 <img src="images/appinsights-4.png" width="400px" />
 
+#### 3-3. API 呼び出しと Application Insights へのログの転送
+
+Application Insights の設定を行う以前の API 呼び出しは Application Insights にデータが転送されていません。
+このタイミングで Module 1 ~ 6 で実施したような API 呼び出しを数回行ってから、下記の手順に進んでください。
 
 ## ４. API Managementのログとメトリクスの利用
 
