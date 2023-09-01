@@ -21,7 +21,7 @@ Azure Logic Apps連携でやることは次のとおりです。
 
 ### 1. Azure Logic Appsの作成
 
-#### 1-1. このボタンをクリックして、Azure Functions のデプロイを開始　<a href="https://portal.azure.com/#create//Microsoft.EmptyWorkflow"><img src="./images/deploytoazurebutton.svg" /></a>　
+#### 1-1. このボタンをクリックして、Azure Functions のデプロイを開始　<a href="https://portal.azure.com/#create/Microsoft.LogicApp"><img src="./images/deploytoazurebutton.svg" /></a>　
 
 #### 1-2. Logic Appを作成
 
