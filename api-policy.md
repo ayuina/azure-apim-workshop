@@ -20,7 +20,7 @@
 モックレスポンスを利用すると、バックエンドのAPIの実装までも仮のレスポンスを返すことができるので、クライアントの開発を進めることができるようになります。
 
 ## 1. 流量制御
-流量制御(late-limit)のポリシーを設定して、外部のURLを呼ぶHttp BinのGET html操作の呼び出しが同じIPアドレスからは、60秒間に1回だけできるように設定します。
+流量制御(rate-limit)のポリシーを設定して、外部のURLを呼ぶHttp BinのGET html操作の呼び出しが同じIPアドレスからは、60秒間に1回だけできるように設定します。
 
 #### 1-1. HttpBinのGET htmlを選択し、右Pane上部の「Design」タブをクリック
 <img src="images/add-apim-policy-ratelimit-1.png" width="500px" />
