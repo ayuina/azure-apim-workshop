@@ -73,7 +73,7 @@ __基本タブ__
 
 <img src="images/install-func-deploycenter-3.png" alt="同期" width="500px" />
 
-#### 2-4. 左Paneで「関数」をクリック
+#### 2-4. 左Paneで「概要」をクリック
 #### 2-5. 右Paneの関数一覧の「putFile」をクリック
 
 <img src="images/install-func-deploycenter-4.png" alt="putFile" width="500px" />
