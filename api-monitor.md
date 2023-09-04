@@ -41,7 +41,7 @@ APIM のログやメトリックを利用するための設定をしていきま
 |地域|Japan East|
 
 
-### 2. アプリケーションインサイトの作成
+### 2. Application Insightsの作成
 
 #### 2-1. ワークショップで利用するリソースグループを選択
 
@@ -81,20 +81,28 @@ Applicaiton Insightsが表示されるので、それをクリックしてアプ
 
 <img src="images/appinsights-4.png" width="400px" />
 
+#### 3-3. API 呼び出しと Application Insights へのログの転送
+
+Application Insights の設定を行う以前の API 呼び出しは Application Insights にデータが転送されていません。
+このタイミングで Module 1 ~ 6 で実施したような API 呼び出しを数回行ってから、下記の手順に進んでください。
 
 ## ４. API Managementのログとメトリクスの利用
 
 ### 分析
 APIM管理画面の左Paneで分析を選択すると、タイムラインのグラフや、どの地域から呼び出されているかなどを参照できる。
+> この機能は前述の Application Insights の設定なしでも既定の状態で利用できます。
 
 <img src="images/apim-analytics-1.png">
 
 <img src="images/apim-analytics-2.png">
 
+
 ### メトリック
 APIM管理画面の左Paneでメトリックを選択すると、Request数などを参照することができる。
 
 メトリックの種類で「Requests」を選択肢、分割を適用するで「Gateway Response Code Category」を選択すると、レスポンスコードのカテゴリごとの要求数がグラフ表示される。
+
+> この機能は前述の Application Insights の設定なしでも既定の状態で利用できます。
 
 <img src="images/apim-metrics-2.png">
 
@@ -103,7 +111,7 @@ APIM管理画面の左Paneでメトリックを選択すると、Request数な�
 
 <img src="images/apim-metrics-1.png">
 
-### Application　Insightsの利用
+### Application Insightsの利用
 
 #### アプリケーションマップ
 
