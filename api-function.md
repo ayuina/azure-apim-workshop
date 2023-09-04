@@ -73,7 +73,7 @@ __基本タブ__
 
 <img src="images/install-func-deploycenter-3.png" alt="同期" width="500px" />
 
-#### 2-4. 左Paneで「関数」をクリック
+#### 2-4. 左Paneで「概要」をクリック
 #### 2-5. 右Paneの関数一覧の「putFile」をクリック
 
 <img src="images/install-func-deploycenter-4.png" alt="putFile" width="500px" />
@@ -92,7 +92,12 @@ __基本タブ__
 
 <img src="images/install-func-deploycenter-5.png" alt="関数のURLの取得" width="500px" />
 
+#### 2-9. Functions と同時に作成されたストレージアカウントの管理画面を開く
+#### 2-10. 左Paneで「コンテナー」をクリック
+#### 2-11. 右Paneでコンテナーの一覧から「outcontainer」をクリック
+#### 2-12. 右Paneで Blob を選択し、「編集」タブをクリック
 
+<img src="images/install-func-deploycenter-6.png" alt="保存されたBlobの確認" width="500px" />
 
 
 ## Azure API Managementの設定
