@@ -145,7 +145,8 @@ API Managementを通して外部のサイトを呼び出すための設定をし
 
 #### 7-1. 画面上部の「Test」タブをクリックしてテスト画面を表示
 #### 7-2. Operationの一覧から先ほど追加した 「GET image」を選択
-#### 7-3. 画面下部の「Send」ボタンをクリック
+#### 7-3. 「+ Add header」 をクリックして「Accept: image/jpeg」を選択
+#### 7-4. 画面下部の「Send」ボタンをクリック
 
 <img src="images/add-api-image-test-1.png" alt="image Operationのテスト" width="500px"/>
 
