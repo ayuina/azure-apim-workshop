@@ -22,7 +22,7 @@
 ## 1. 流量制御
 流量制御(rate-limit)のポリシーを設定して、外部のURLを呼ぶHttp BinのGET html操作の呼び出しが同じIPアドレスからは、60秒間に1回だけできるように設定します。
 
-#### 1-1. HttpBinのGET htmlを選択し、右Pane上部の「Design」タブをクリック
+#### 1-1. HttpBin API を選択、右Pane上部の「Design」タブを選択して、「GET html」をクリック
 <img src="images/add-apim-policy-ratelimit-1.png" width="500px" />
 
 #### 1-2. Inbound processingの「+Add policy」をクリックしてポリシー設定を開始
