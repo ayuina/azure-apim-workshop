@@ -251,6 +251,8 @@ createReview、listReviewsという関数が追加されていることを確認
 
 ### 9. 販売店用の製品の登録
 
+<img src="images/subs-api-1.png" width="500px"/>
+
 #### 9-1. APIM管理画面の左Paneの「製品」をクリックし、右Pane上部の「+追加　」をクリック
 <img src="images/add-prod-1.png" width=300px />
 
@@ -311,6 +313,8 @@ Postman でテストする場合は以下の画面を参考にしてください
 <img src="images/postman-zaiko-get.png">
 
 ### 10. 製造社用のサブスクリプションの登録
+
+<img src="images/subs-api-1.png" width="500px"/>
 
 #### 10-1. APIM管理画面の左Paneで「サブスクリプション」をクリックし、右Pane上部の「+サブスクリプションの追加」をクリック
 
