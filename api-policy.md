@@ -205,6 +205,8 @@ __Frontend__
 
 <img src="images/add-apim-policy-outboundsetbody-2.png" width="300px" />
 
+挙動の差異を確認するためにここで一度テスト実行しておきます。
+
 #### 4-3. 右PaneのOutbound processingのPoliciesの右の「</>」ボタンをクリック
 
 <img src="images/add-apim-policy-outboundsetbody-3.png" width="300px" />
