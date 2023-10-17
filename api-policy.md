@@ -22,7 +22,7 @@
 ## 1. 流量制御
 流量制御(rate-limit)のポリシーを設定して、外部のURLを呼ぶHttp BinのGET html操作の呼び出しが同じIPアドレスからは、60秒間に1回だけできるように設定します。
 
-#### 1-1. HttpBinのGET htmlを選択し、右Pane上部の「Design」タブをクリック
+#### 1-1. HttpBin API を選択、右Pane上部の「Design」タブを選択して、「GET html」をクリック
 <img src="images/add-apim-policy-ratelimit-1.png" width="500px" />
 
 #### 1-2. Inbound processingの「+Add policy」をクリックしてポリシー設定を開始
@@ -140,21 +140,32 @@ __Frontend__
 
 <img src="images/add-apim-policy-retry-1.png" width="500px" />
 
-#### 3-3. <backend>を下記内容に書き換えて画面下部の「Save」ボタンをクリック
+#### 3-3. backend を下記内容に書き換えて画面下部の「Save」ボタンをクリック
 
-```
-
+```xml
     <backend>
         <retry condition="@(context.Response.StatusCode == 500)" count="1" interval="10">
-            <set-backend-service base-url="https://httpbin.org/anything/" />
+            <choose>
+                <when condition="@(context.Response.Body != null)">
+                    <set-backend-service base-url="https://httpbin.org/anything/" />
+                </when>
+            </choose>
             <forward-request />
         </retry>
     </backend>
-
 ```
 
-ここで呼び出すバックエンドサービスは `https://httpbin.org/status/[ステータスコード]`。
-このポリシーは、バックエンドサービスの応答が500だった場合に10秒後に1回リトライします。リトライ時には`https://httpbin.org/anything/[ステータスコード]`を呼び出します。
+ここで指定している[retry ポリシー](https://learn.microsoft.com/ja-jp/azure/api-management/retry-policy) は子ポリシーを 1 回実行し、
+条件(condition）に指定されているようにレスポンスコードが 500 である場合に、上限回数(count) を1 回として、子ポリシーを10秒間隔(interval)で再試行します。
+
+子ポリシーには以下の 2 つが指定されています。
+- choose
+  - レスポンスボディが null でない、すなわち過去に 1 回以上のリトライが行われている場合に、`set-backend-service` でバックエンドサービスを切り替えています
+  - 初回実行の場合は バックエンドサービスはそのままになるので `https://httpbin.org/status/[ステータスコード]` になります
+- forward-request
+  - バックエンド API にリクエストを転送します
+  - これは上位のポリシーで指定されている既定の挙動ですが、retry ポリシーの含めるために base ポリシーが除去されています
+
 <img src="images/add-apim-policy-retry-2.png" width="500px" />
 
 #### 3-4. 画面上部の「Test」タブをクリックしてテスト画面を表示
@@ -193,6 +204,8 @@ __Frontend__
 画面下部の「Save」ボタンをクリック
 
 <img src="images/add-apim-policy-outboundsetbody-2.png" width="300px" />
+
+挙動の差異を確認するためにここで一度テスト実行しておきます。
 
 #### 4-3. 右PaneのOutbound processingのPoliciesの右の「</>」ボタンをクリック
 

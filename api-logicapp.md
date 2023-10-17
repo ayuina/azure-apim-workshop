@@ -52,6 +52,7 @@ __基本タブ__
 
 ### 2. ワークフローの作成
 
+#### 2-0. 「概要」画面の「作業の開始」タブから「テンプレートを選択する」をクリック
 #### 2-1. テンプレートから「HTTP要求と応答」をクリックに、ダイアログで「このテンプレートを使用する」ボタンをクリック
 <img src="images/logicapp-create-workflow-1.png" alt="ワークフローの作成1" width="500px" />
 <img src="images/logicapp-create-workflow-2.png" alt="ワークフローの作成1" width="500px" />

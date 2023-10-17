@@ -251,6 +251,8 @@ createReview、listReviewsという関数が追加されていることを確認
 
 ### 9. 販売店用の製品の登録
 
+<img src="images/subs-api-1.png" width="500px"/>
+
 #### 9-1. APIM管理画面の左Paneの「製品」をクリックし、右Pane上部の「+追加　」をクリック
 <img src="images/add-prod-1.png" width=300px />
 
@@ -273,23 +275,46 @@ createReview、listReviewsという関数が追加されていることを確認
 
 #### 9-3. 作成した製品のサブスクリプションを確認
 作成したサブスクリプションを選択し、サブスクリプションを確認します。
+API キーを表示してメモ帳等に控えておいてください。
 
 <img src="images/shop-prod-subs.png" width=400px />
 
 #### 9-4. 製品のSubscriptionを利用してAPIを呼ぶ
 
 Zaiko APIのgetListオペレーションのテストタブを開き、リクエストURLを確認します。
+確認したURL `https://[APIMのURL]/zaiko/list` もメモ帳等に控えておきます。
 
+コマンドラインからテストする場合は以下のようになります。
+
+```powershell
+# PowerShell core の場合
+$url = '[控えておいたリクエストURL]'
+$header = @{'Ocp-Apim-Subscription-Key' = '[控えておいた API キー]'}
+Invoke-WebRequest -Uri $url -Headers $header
 ```
-curl -H "Ocp-Apim-Subscription-Key:[確認したサブスクリプション]" https://[APIMのURL]/zaiko/list
+
+```bash
+# Bash の場合
+url=[控えておいたリクエストURL]
+header='Ocp-Apim-Subscription-Key: [控えておいたAPIキー]'
+curl -H "$header" $url
+```
+
+```cmd
+: Windows コマンドプロンプトの場合
+SET URL=https://apim-ainaba1016.azure-api.net/zaiko/list
+SET HEADER=Ocp-Apim-Subscription-Key: [控えておいたAPIキー]
+curl -H "%HEADER%" %URL%
 ```
 
 
-Postmanの場合
+Postman でテストする場合は以下の画面を参考にしてください。
 
 <img src="images/postman-zaiko-get.png">
 
-### 10. 製造社用のサブスクリプションの登録
+### 10. 製造者用のサブスクリプションの登録
+
+<img src="images/subs-api-1.png" width="500px"/>
 
 #### 10-1. APIM管理画面の左Paneで「サブスクリプション」をクリックし、右Pane上部の「+サブスクリプションの追加」をクリック
 
