@@ -140,17 +140,19 @@ __Frontend__
 
 <img src="images/add-apim-policy-retry-1.png" width="500px" />
 
-#### 3-3. <backend>を下記内容に書き換えて画面下部の「Save」ボタンをクリック
+#### 3-3. backend を下記内容に書き換えて画面下部の「Save」ボタンをクリック
 
 ```xml
-    <retry condition="@(context.Response.StatusCode == 500)" count="1" interval="10">
-        <choose>
-            <when condition="@(context.Response.Body != null)">
-                <set-backend-service base-url="https://httpbin.org/anything/" />
-            </when>
-        </choose>
-        <forward-request />
-    </retry>
+    <backend>
+        <retry condition="@(context.Response.StatusCode == 500)" count="1" interval="10">
+            <choose>
+                <when condition="@(context.Response.Body != null)">
+                    <set-backend-service base-url="https://httpbin.org/anything/" />
+                </when>
+            </choose>
+            <forward-request />
+        </retry>
+    </backend>
 ```
 
 ここで指定している[retry ポリシー](https://learn.microsoft.com/ja-jp/azure/api-management/retry-policy) は子ポリシーを 1 回実行し、
