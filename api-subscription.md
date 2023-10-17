@@ -312,7 +312,7 @@ Postman でテストする場合は以下の画面を参考にしてください
 
 <img src="images/postman-zaiko-get.png">
 
-### 10. 製造社用のサブスクリプションの登録
+### 10. 製造者用のサブスクリプションの登録
 
 <img src="images/subs-api-1.png" width="500px"/>
 
